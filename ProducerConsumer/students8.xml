@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Student SYSTEM "students.dtd">
+<Student>
+    <Name>Xeonn</Name>
+    <id>47470864</id>
+    <programme>IT</programme>
+    <courses>[CSG415, ACC111, CSC435, CCR300, CSC811, ADA111, AED111, ACF321]</courses>
+    <marks>[46, 15, 68, 54, 87, 40, 85, 47]</marks>
+</Student>

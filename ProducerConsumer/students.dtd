@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Student (Name,id,programme,courses ,marks)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT programme (#PCDATA)>
+<!ELEMENT courses (#PCDATA)>
+<!ELEMENT marks (#PCDATA)>
