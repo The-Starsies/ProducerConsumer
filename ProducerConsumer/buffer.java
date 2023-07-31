@@ -5,11 +5,13 @@ import java.util.List;
 
 public class buffer {
 
+
+	// A HALF IMPLEMENTED BUFFER THAT LACKS A COMPLETE SOLUTIO TO RESOURCE LOCKING BUT A ATTEMPT WAS MADE TO TRY AND ADDRESS THE ISSUE BY USING THE SYCHRONIZED TAG
 	 static int key = 0;
 	 static boolean keyA = false ;
 	 static List<Integer> keys=new ArrayList<Integer>();
 
-
+	 // EMPTY COSTRUCTOR
 	public buffer() {
 
 
@@ -42,13 +44,14 @@ public class buffer {
 
 	}
 
+	 // THE FUNCTION TO TRY AND SET A BUFFER SIZE BY ADDING VALUES TO A LIST AND USING TO KEEP COUNT LIKE A STACK AND ALSO USING ITS INHERENT FUCNTIONS OF ADDING , CLEARING AND INSERTING
 	 synchronized void setbuffer(int eyy) {
 		 while (keyA == true) {
              try {
                  wait();
              } catch (InterruptedException e) { }
          }
-
+		 keyA = true;
 		 if(eyy==0) {
 
 			 keys.clear();
@@ -63,6 +66,8 @@ public class buffer {
 		 	key = eyy ;
 
 		 }
+		 keyA = false;
+		 notifyAll();
 
 	}
 }

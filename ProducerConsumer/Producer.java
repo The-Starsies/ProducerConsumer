@@ -43,7 +43,7 @@ public class Producer extends Thread {
         RandomDetails();
     }
 
-
+    //THIS FUNTION AND CODE RANDOMYL ASSOCIATES NAMES OF STUDENTS ALONGSIDE SOME GUESSED SCORES ,
     public void RandomDetails() {
 
     	//14 names
@@ -56,13 +56,13 @@ public class Producer extends Thread {
 
     	//Course Codes
     	Courses.add("CSC435");Courses.add("CSG415");Courses.add("CCR300");Courses.add("CSC811");
-    	Courses.add("ACC111");Courses.add("ACF321");Courses.add("AED111");Courses.add("ADA111");
+    	//Courses.add("ACC111");Courses.add("ACF321");Courses.add("AED111");Courses.add("ADA111");
     	Collections.shuffle(Courses);
-    //	Courses.add("BUS111");Courses.add("BCF321");Courses.add("BED111");Courses.add("BDA111");
+    	Courses.add("BUS111");Courses.add("BCF321");Courses.add("BED111");Courses.add("BDA111");
 
     	int minVal = 10000000; int maxVal = 99999999; int minVal1 = 0;  int maxVal1 = 100;
 
-	    //Creat unique ids for everyone
+	    //Create unique ids for everyone
 	    while (Ids.size() != 15) {
 	        int randInt = ThreadLocalRandom.current().nextInt(minVal, maxVal);
 	        if(!Ids.contains(randInt)) {
@@ -206,9 +206,8 @@ public class Producer extends Thread {
 
 
     public void run() {
-    	///ProducerConsumer/ProducerConsumer/buffer.xml
 
-    //	Ch.setbuffer(0);
+
     	int val = 0 ;
     	if(Ch.checkbuffer() == "empty") {
         for (int i = 0; i < 11; i++) {

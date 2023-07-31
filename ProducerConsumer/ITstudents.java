@@ -7,7 +7,8 @@ import java.util.List;
 import sun.security.pkcs11.wrapper.Functions;
 
 public class ITstudents {
-    //private int contents;
+
+
 
     String Stdntnname ;
     int StdntId ;
@@ -17,21 +18,26 @@ public class ITstudents {
     List<String> Marks2=new ArrayList<String>();
     private boolean available = false;
 
+
+    		//CONSTRUCTOR OPTION NUMBER ONE
     public ITstudents(String Stdntnname2 ,int StdntId2 , String StdntPrgrmme2 ,List<String> Courses2 ,List<String> Marks2) {
 
     	this.Stdntnname =Stdntnname2;
         this.StdntId  = StdntId2 ;
         this.StdntPrgrmme = StdntPrgrmme2 ;this.Courses = Courses2 ;this.Marks = Marks2;
     }
+
+    		//CONSTRUCTOR OPTION NUMBER TWO
     public ITstudents(String Stdntnname2 ,String StdntId2 , String StdntPrgrmme2 ,String Courses2 ,String Marks2) {
 
     	this.Stdntnname =Stdntnname2;
         this.StdntId  = Integer.valueOf(StdntId2) ;
         this.StdntPrgrmme = StdntPrgrmme2 ;
 
+
+        //AN ADAPTER BETWEEN ARRAYS ADND STRING FROM IMPORTING THE DATA FROMN XML FILES INTO JAVA PROGRAMS
         StringBuilder sb=new StringBuilder(Courses2);
         sb.deleteCharAt(Courses2.length()-1);sb.deleteCharAt(0);
-       // System.out.print("\n"+sb);
 
         StringBuilder sb2=new StringBuilder(Marks2);
         sb2.deleteCharAt(sb2.length()-1);sb2.deleteCharAt(0);
@@ -39,7 +45,6 @@ public class ITstudents {
         String[] elements = sb2.toString().split(",");
         this.Courses = Arrays.asList( sb.toString()) ;
         this.Marks = (Arrays.asList(elements));
-    //    System.out.print("\n"+Marks.toString()+"\n");
 
 
 
@@ -47,7 +52,7 @@ public class ITstudents {
 
 
 
-
+    // GETTERS AD SETTERS FOR VARIABLES
     public synchronized int getID() {
         while (available == false) {
             try {
@@ -56,6 +61,7 @@ public class ITstudents {
         }
         available = false;
         notifyAll();
+
         return StdntId;
     }
 
@@ -100,6 +106,7 @@ public class ITstudents {
         return this.Marks;
     }
 
+    //THE ABILITY TO DD A STUDENT
     public synchronized void put(String Stdntnname2 ,int StdntId2 , String StdntPrgrmme2 ,List<String> Courses2 ,List<String> Marks2) {
         while (available == true) {
             try {

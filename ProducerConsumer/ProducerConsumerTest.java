@@ -13,19 +13,7 @@ public class ProducerConsumerTest {
     	buffer C = new buffer();
         Producer p1 = new Producer(C);
         Consumer c1 = new Consumer(C);
-
-
-
-     //   System.out.println("##############"+C.checkbuffer());
         p1.start();
-        //System.out.println("##############"+C.checkbuffer());
-     //   c1.start();
-      //  System.out.println("##############"+ C.checkbuffer());
-
-
-
-       // System.out.println("#############" + C.checkbuffer());
-
 
 
 

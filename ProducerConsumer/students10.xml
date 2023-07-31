@@ -2,8 +2,8 @@
 <!DOCTYPE Student SYSTEM "students.dtd">
 <Student>
     <Name>James</Name>
-    <id>41828131</id>
+    <id>71883099</id>
     <programme>IT</programme>
-    <courses>[CSG415, ACC111, CSC435, CCR300, CSC811, ADA111, AED111, ACF321]</courses>
-    <marks>[84, 36, 69, 4, 73, 58, 24, 75]</marks>
+    <courses>[CSC435, CSC811, CCR300, CSG415, BUS111, BCF321, BED111, BDA111]</courses>
+    <marks>[42, 60, 80, 29, 89, 96, 85, 64]</marks>
 </Student>

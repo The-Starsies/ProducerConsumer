@@ -20,6 +20,15 @@ import org.w3c.dom.NodeList;
 
 public class Consumer extends Thread {
 
+
+
+
+
+
+
+
+
+	//shared variables for this section of the prgram
 	public List<ITstudents> students=new ArrayList<ITstudents>();
 	List<String> CourseLists=new ArrayList<String>();
     List<String> Markslist=new ArrayList<String>();
@@ -35,7 +44,7 @@ public class Consumer extends Thread {
 
 
 
-
+  //empty costructor
     public Consumer(buffer number) { this.Ch = number;  }
 
 
@@ -49,7 +58,7 @@ public class Consumer extends Thread {
 
 
 
-
+  //a mock function that evere got used
     public void resultsSummary()  {
 
 if (!students.isEmpty()) {
@@ -90,19 +99,13 @@ if (!students.isEmpty()) {
 
     }
 
+
+
+    // Tries to Delete ALl XML FILES , AFTER READING FROM THEM
     public void delete() {
-    	// Deletes ALl XML FILES
+
+
    	 for (int i = 0; i <= 10; i++) {
-            //  cubbyhole.put(i);
-
-         /*      memory = new File ("C:\\Users\\blank\\workspace\\ProducerConsumer\\ProducerConsumer\\students"+i+".xml");
-			if(memory.isFile()) {
-			if(memory.canRead()&&memory.canExecute()){
-
-				memory.delete();
-			}
-            } */
-
 
    	try {
         // creates a file object
@@ -110,13 +113,16 @@ if (!students.isEmpty()) {
        // path.c
         // deletes the file
         boolean value = Files.deleteIfExists(path);
+
         if(value) {
+
           System.out.println("Files have been successfully deleted.");
-        }
-        else {
+
+        }else {
+
           System.out.println("File doesn't exit");
-        }
-      } catch (Exception e) {
+
+        }} catch (Exception e) {
         e.getStackTrace();
       }
 
@@ -124,12 +130,12 @@ if (!students.isEmpty()) {
 
     public void run() {
 
-    	System.out.print("\n"+Ch.getbuffer());
+    	System.out.print("\n Buffer Size : "+Ch.getbuffer());
 
     	if(Ch.getbuffer()  != 0) {
 
         for (int i = 0; i < 10; i++) {
-
+        	int avg = 0;
 
         	//STAGE OE
             try
@@ -144,15 +150,16 @@ if (!students.isEmpty()) {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
-           // doc.
-        //    System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+
+
             NodeList nodeList = doc.getElementsByTagName("Student");
 
             // nodeList is not iterable, so we are using for loop
             for (int itr = 0; itr < nodeList.getLength(); itr++)
             {
             Node node = nodeList.item(itr);
-          //  System.out.println("\nNode Name :" + node.getNodeName());
+
+
             if (node.getNodeType() == Node.ELEMENT_NODE)
             {
             Element eElement = (Element) node;
@@ -164,7 +171,7 @@ if (!students.isEmpty()) {
              Marks = eElement.getElementsByTagName("marks").item(0).getTextContent();
 
 
-             System.out.println("\n---------------------------------------------------------------------");
+            System.out.println("\n---------------------------------------------------------------------");
             System.out.println("\nStudent Name : "+Name);
             System.out.println("ID : "+ ID);
             System.out.println("Programme : "+ Programme);
@@ -173,7 +180,7 @@ if (!students.isEmpty()) {
 
 
 
-            	int avg = 0;
+
             	 StringBuilder sb=new StringBuilder(Courses);
                  sb.deleteCharAt(Courses.length()-1);sb.deleteCharAt(0);
                 // System.out.print("\n"+sb);
@@ -185,6 +192,8 @@ if (!students.isEmpty()) {
                  String[] elements2 = sb.toString().split(",");
                  List<String> courserr  = Arrays.asList( elements2) ;
                  List<String> carkos = (Arrays.asList(elements));
+
+                 //GENERATES COURSE AVRRAGES FROM THE MARKS
                  for (int lk = 0 ;lk<courserr.size();lk++) {
                 	 System.out.print("\n Course : " + courserr.get(lk) +" Grade : " +carkos.get(lk) );
                 	 avg+=Integer.valueOf(carkos.get(lk).trim());
@@ -195,28 +204,22 @@ if (!students.isEmpty()) {
                 if(avg>=50) {
                     System.out.println("\t THE STUDENT PASSED WITH : "+ avg +" Percent") ;
 
-                     }else if(avg<50) {
+               }else if(avg<50) {
                     	 System.out.println("\t THE STUDENT FAILED WTIH : "+ avg +" Percent") ;
 
-                     }
+               					}
 
 
 
 
 
-            }
-            }
-            }
-            catch (Exception e)
-            {
-            e.printStackTrace();
-            }
+            						}}}catch (Exception e) {  e.printStackTrace(); }
          //   resultsSummary();
             Ch.setbuffer(0);
             delete();
         }
 
-    }else { System.out.println("\nbuffer is empty please run the producer !"); }
+    }else { System.out.println("\nThe Buffer is empty please run the Producer !"); }
 
 }
 

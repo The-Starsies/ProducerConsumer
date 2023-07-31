@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE Student SYSTEM "students.dtd">
 <Student>
-    <Name>Nkosi</Name>
-    <id>86793730</id>
+    <Name>Juice</Name>
+    <id>75193828</id>
     <programme>IT</programme>
-    <courses>[CSG415, ACC111, CSC435, CCR300, CSC811, ADA111, AED111, ACF321]</courses>
-    <marks>[82, 39, 11, 22, 36, 76, 16, 28]</marks>
+    <courses>[CSC435, CSC811, CCR300, CSG415, BUS111, BCF321, BED111, BDA111]</courses>
+    <marks>[9, 25, 88, 96, 38, 90, 52, 34]</marks>
 </Student>
